@@ -1,0 +1,8 @@
+include DESIGN
+include GNUmakefile
+include README
+include TODO
+include base32.c
+include base32.h
+include test.c
+include ez_setup.py
