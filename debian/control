@@ -1,0 +1,17 @@
+Source: python-zbase32
+Section: python
+Priority: extra
+Maintainer: Ian Eure <ian@simplegeo.com>
+Uploaders: SimpleGeo Nerds <nerds@simplegeo.com>
+Build-Depends: debhelper (>= 7), cdbs (>= 0.4.59), python (>= 2.6), python-central (>= 0.6.11)
+Standards-Version: 3.8.4
+Homepage: http://pypi.python.org/pypi/zbase32/
+XS-Python-Version: 2.6
+
+Package: python-zbase32
+Architecture: all
+XB-Python-Version: ${python:Versions}
+Depends: ${misc:Depends}, ${python:Depends}
+Description: Python base32 encoder/decoder
+ An alternate base32 encoder (not RFC 3548 compliant).
+
