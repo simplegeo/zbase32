@@ -8,6 +8,7 @@
 # distribute, sublicense, and/or sell copies).
 
 NAME=base32
+BUILD_NUMBER ?= 0000INVALID
 
 INCDIRS=-I../libzutil -I../libzstr
 LIBDIRS=-L../libzutil -L../libzstr
@@ -31,6 +32,13 @@ OBJS=$(SRCS:%.c=%.o)
 TESTOBJS=$(TESTSRCS:%.c=%.o)
 TEST=testlb32
 LIB=$(LIBPREFIX)$(NAME)$(LIBSUFFIX)
+
+.PHONY: zbase32/_version.py
+
+version: zbase32/_version.py
+
+zbase32/_version.py: zbase32/_version.py.m4
+	m4 -D__BUILD__=$(BUILD_NUMBER) $^ > $@
 
 all: $(LIB) $(TEST)
 
