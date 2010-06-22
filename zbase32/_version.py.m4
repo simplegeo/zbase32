@@ -1,6 +1,6 @@
 # This is the version of this source code.
 
-verstr = "0.8.__BUILD__"
+verstr = "1.1.__BUILD__"
 
 try:
     from pyutil.version_class import Version
