@@ -49,20 +49,14 @@ trove_classifiers=[
 setup_requires = []
 
 PKG='zbase32'
-VERSIONFILE = os.path.join(PKG, "_version.py")
-verstr = "unknown"
-try:
-    verstrline = open(VERSIONFILE, "rt").read()
-except EnvironmentError:
-    pass # Okay, there is no version file.
-else:
-    VSRE = r"^verstr = ['\"]([^'\"]*)['\"]"
-    mo = re.search(VSRE, verstrline, re.M)
-    if mo:
-        verstr = mo.group(1)
-    else:
-        print "unable to find version in %s" % (VERSIONFILE,)
-        raise RuntimeError("if %s.py exists, it must be well-formed" % (VERSIONFILE,))
+__VERSION_FILE = os.path.join(PKG, '_version.py')
+__VERSION_LOCALS={}
+execfile(__VERSION_FILE, __VERSION_LOCALS)
+
+if '__version__' not in __VERSION_LOCALS:
+    raise RuntimeError("No __version__ defined in in %s." % __VERSION_FILE)
+
+version = str(__VERSION_LOCALS['__version__'])
 
 # darcsver is needed only if you want "./setup.py darcsver" to write a new
 # version stamp in pyutil/_version.py, with a version number derived from
@@ -78,7 +72,7 @@ setup_requires.append('setuptools_darcs >= 1.1.0')
 
 def _setup(test_suite):
     setup(name=PKG,
-          version=verstr,
+          version=version,
           description='base32 encoder/decoder',
           long_description='An alternate base32 encoder (not RFC 3548 compliant).',
           author='Zooko O\'Whielacronx',
