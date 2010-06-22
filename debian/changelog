@@ -1,3 +1,12 @@
+python-zbase32 (1.1.23) lucid; urgency=low
+
+  [ Ian Eure ]
+  * Architecture: any; this has C extensions.
+
+  [ SimpleGeo Nerds ]
+
+ -- SimpleGeo Nerds <nerds@simplegeo.com>  Tue, 22 Jun 2010 16:24:02 +0000
+
 python-zbase32 (1.1.22) lucid; urgency=low
 
   [ Ian Eure ]
